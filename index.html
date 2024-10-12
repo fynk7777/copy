@@ -37,11 +37,14 @@
 
       // クリップボードにテキストをコピー
       navigator.clipboard.writeText(message).then(function() {
+        // 3秒後にウィンドウを閉じる
         setTimeout(function() {
-          // ウィンドウを閉じる
           window.close();
-        }, 3000);
-    }}
+        }, 1000); // 3000ミリ秒 = 3秒
+      }).catch(function(err) {
+        console.error("コピーに失敗しました: ", err);
+      });
+    }
   </script>
 
 </body>
