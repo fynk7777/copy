@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自動コピーとサイトの終了</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .message {
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>メッセージをコピーして閉じます</h1>
+  <div class="message" id="message">
+    【ID】：<br>
+    【主にやってるモード】：<br>
+    【フォトナ歴】：<br>
+    【機種】：<br>
+    【一言】：
+  </div>
+
+  <script>
+    window.onload = function() {
+      // コピーするメッセージ
+      const message = `【ID】：\n【主にやってるモード】：\n【フォトナ歴】：\n【機種】：\n【一言】：`;
+
+      // クリップボードにテキストをコピー
+      navigator.clipboard.writeText(message).then(function() {
+
+        // ウィンドウを閉じる
+        window.close();
+      }).catch(function(err) {
+        console.error("コピーに失敗しました: ", err);
+      });
+    }
+  </script>
+
+</body>
+</html>
